@@ -1,0 +1,32 @@
+app-id: org.fortressone.FortressOne
+runtime: org.freedesktop.Platform
+runtime-version: '21.08'
+sdk: org.freedesktop.Sdk
+command: launcher.sh
+finish-args:
+  - --device=dri
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
+  - --socket=x11
+modules:
+  - name: fortressone
+    buildsystem: simple
+    build-commands:
+    - mkdir -p /app/bin
+    - cp -r * /app/bin
+    - chmod +x /app/bin/fortressone64
+    - chmod +x /app/bin/launcher.sh
+    - install -Dm644 org.fortressone.FortressOne.desktop /app/share/applications/org.fortressone.FortressOne.desktop
+    - install -Dm644 org.fortressone.FortressOne.png /app/share/icons/hicolor/256x256/apps/org.fortressone.FortressOne.png
+    - install -Dm755 launcher.sh /app/bin/launcher.sh
+    sources:
+      - type: file
+        path: org.fortressone.FortressOne.desktop
+      - type: file
+        path: launcher.sh
+      - type: file
+        path: org.fortressone.FortressOne.png
+      - type: archive
+        url: https://github.com/FortressOne/fte-config/releases/download/1.1.1-beta.1/fortressone-fte-linux-1.1.1-beta.1-portable.zip
+        sha256: ea21e0f6d3d44655961f7a0ce666ae6bf8420fdffd8969127f142d464b4a5bc0

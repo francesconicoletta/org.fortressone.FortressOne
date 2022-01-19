@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=FortressOne
+Comment=Quake Team Fortress Remastered
+Encoding=UTF-8
+Icon=org.fortressone.FortressOne.png
+Exec=launcher.sh
+Terminal=false
+Type=Application
+Categories=Game;ActionGame;Shooter;
